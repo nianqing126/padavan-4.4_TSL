@@ -32,7 +32,7 @@ jobs:
       - name: Prepare
         run: |
           sudo apt update
-          sudo apt install unzip libtool-bin ccache curl cmake gperf gawk flex bison nano xxd fakeroot kmod cpio bc zip git python3-docutils gettext automake autopoint texinfo build-essential help2man pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget libc-dev-bin libc6 libtool-bin gperf python3-docutils autopoint gettext ccache utoconf automake avr-libc binutils bison cloog dtc duma elf2flt expat gcc gdb gettext glibc gmp gnuprumcu isl libelf libiconv libtool linux ltrace m4 make mingw-w64 mold moxiebox mpc mpfr musl ncurses newlib-nano newlib picolibc strace uClibc-ng zlib zstd
+          sudo apt install unzip libtool-bin ccache curl cmake gperf gawk flex bison nano xxd fakeroot kmod cpio bc zip git python3-docutils gettext automake autopoint texinfo build-essential help2man pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget libc-dev-bin libc6 libtool-bin gperf python3-docutils libelf libiconv libtool zlib
       - name: Build
         run: |
           make ${{ matrix.target }} TOOLCHAIN=${{ matrix.toolchain }}
