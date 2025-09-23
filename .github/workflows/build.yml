@@ -33,9 +33,7 @@ jobs:
         run: |
           sudo apt update
           sudo -E apt-get -y install $(curl -fsSL https://is.gd/depend_ubuntu2204_openwrt)
-          sudo apt install unzip libtool-bin curl cmake gperf gawk flex bison nano xxd fakeroot \
-        cpio git docutils gettext automake autopoint texinfo build-essential help2man \
-        pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget
+          sudo apt install unzip libtool-bin curl cmake gperf gawk flex bison nano xxd fakeroot cpio git docutils gettext automake autopoint texinfo build-essential help2man pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget
         - name: Build
         run: |
           make ${{ matrix.target }} TOOLCHAIN=${{ matrix.toolchain }}
