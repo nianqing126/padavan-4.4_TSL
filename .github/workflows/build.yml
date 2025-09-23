@@ -32,7 +32,7 @@ jobs:
       - name: Prepare
         run: |
           sudo apt update
-          sudo apt install libtool-bin libc6=2.38 libc6=2.35 libc6 liblzma-dev gperf python3-docutils autopoint gettext ccache
+          sudo apt install libtool-bin build-essential libssl-dev libgdbm-dev libdb-dev libexpat-dev libncurses5-dev libbz2-dev zlib1g-dev gawk bison libc6 liblzma-dev gperf python3-docutils autopoint gettext ccache
       - name: Build
         run: |
           make ${{ matrix.target }} TOOLCHAIN=${{ matrix.toolchain }}
