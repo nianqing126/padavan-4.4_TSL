@@ -8,10 +8,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-23.04
     strategy:
       matrix:
-        target: [K2P,JCG-AC860M,JCG-836PRO]
+        target: [K2P,RT-AC85P,CR660x]
         toolchain: [mipsel-linux-musl]
     steps:
       - uses: actions/checkout@v3
@@ -32,9 +32,8 @@ jobs:
       - name: Prepare
         run: |
           sudo apt update
-          sudo -E apt-get -y install $(curl -fsSL https://is.gd/depend_ubuntu2204_openwrt)
-          sudo apt install unzip libtool-bin curl cmake gperf gawk flex bison nano xxd fakeroot cpio git docutils gettext automake autopoint texinfo build-essential help2man pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget
-        - name: Build
+          sudo apt install libtool-bin gperf python3-docutils autopoint gettext ccache
+      - name: Build
         run: |
           make ${{ matrix.target }} TOOLCHAIN=${{ matrix.toolchain }}
       - uses: actions/upload-artifact@v4
