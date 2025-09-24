@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        target: [JCG-AC860M]
+        target: [K2P,JCG-836PRO,JCG-AC860M]
         toolchain: [mipsel-linux-musl]
     steps:
       - uses: actions/checkout@v3
@@ -32,7 +32,7 @@ jobs:
       - name: Prepare
         run: |
           sudo apt update
-          sudo apt install libtool-bin build-essential libssl-dev libgdbm-dev libdb-dev libglib2.0-dev libexpat-dev libncurses5-dev libbz2-dev zlib1g-dev gawk bison libc6 liblzma-dev gperf python3-docutils autopoint gettext ccache
+          sudo apt install unzip libtool-bin ccache curl cmake gperf gawk flex bison nano xxd fakeroot kmod cpio bc zip git python3-docutils docutils gettext automake autopoint texinfo build-essential help2man pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget libc-dev-bin
       - name: Build
         run: |
           make ${{ matrix.target }} TOOLCHAIN=${{ matrix.toolchain }}
