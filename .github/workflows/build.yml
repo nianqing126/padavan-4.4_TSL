@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-24.04  # 升级到最新的 Ubuntu 版本以获得更新的 GLIBC
     strategy:
       matrix:
-        target: [K2P,JCG-AC860M,JCG-836PRO]
+        target: [K2P]
         toolchain: [mipsel-linux-musl]
     steps:
       - uses: actions/checkout@v4  # 升级到最新版本
