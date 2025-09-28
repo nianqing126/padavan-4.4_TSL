@@ -1,4 +1,4 @@
-name: build-Ubuntu2404
+name: build-JCG-836PRO-Ubuntu2404
 
 on: 
   #push:
